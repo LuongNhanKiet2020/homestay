@@ -1,0 +1,72 @@
+const roomsData = [
+    {
+        id: "room-1",
+        name: "Phòng đơn",
+        type: "single",
+        price: 400000,
+        priceFormatted: "400.000đ",
+        quantity: 2,
+        capacity: 1,
+        beds: "1 giường đơn",
+        image: "assets/images/room1.png",
+        description: "Phòng đơn nhỏ gọn, ấm cúng với đầy đủ tiện nghi cơ bản, phù hợp cho khách du lịch một mình hoặc công tác ngắn ngày.",
+        amenities: ["Wifi miễn phí", "Điều hoà", "Vòi sen", "Bàn làm việc"],
+        badge: ""
+    },
+    {
+        id: "room-2",
+        name: "Phòng đôi",
+        type: "double",
+        price: 600000,
+        priceFormatted: "600.000đ",
+        quantity: 3,
+        capacity: 2,
+        beds: "1 giường đôi",
+        image: "assets/images/room2.png",
+        description: "Không gian lãng mạn dành cho các cặp đôi với giường king-size êm ái và view nhìn ra rừng thông tuyệt đẹp.",
+        amenities: ["Wifi miễn phí", "Smart TV", "Bồn tắm", "Minibar", "Ban công"],
+        badge: "Phổ biến"
+    },
+    {
+        id: "room-3",
+        name: "Phòng Triple",
+        type: "triple",
+        price: 750000,
+        priceFormatted: "750.000đ",
+        quantity: 2,
+        capacity: 3,
+        beds: "1 giường đơn + 1 giường đôi",
+        image: "assets/images/hero.png",
+        description: "Lựa chọn hoàn hảo cho nhóm bạn 3 người hoặc gia đình nhỏ, không gian sinh hoạt rộng rãi và thoải mái.",
+        amenities: ["Wifi miễn phí", "Smart TV", "Vòi sen", "Khu vực tiếp khách"],
+        badge: ""
+    },
+    {
+        id: "room-4",
+        name: "Phòng 4 người",
+        type: "quad",
+        price: 900000,
+        priceFormatted: "900.000đ",
+        quantity: 3,
+        capacity: 4,
+        beds: "2 giường đôi",
+        image: "assets/images/room1.png",
+        description: "Phòng siêu rộng với 2 giường đôi cỡ lớn, cửa sổ kính toàn cảnh đón ánh sáng tự nhiên trọn vẹn.",
+        amenities: ["Wifi miễn phí", "2 Smart TV", "Bồn tắm đôi", "Tủ lạnh", "Khu ăn uống"],
+        badge: ""
+    },
+    {
+        id: "room-5",
+        name: "Phòng gia đình",
+        type: "family",
+        price: 1200000,
+        priceFormatted: "1.200.000đ",
+        quantity: 2,
+        capacity: 8,
+        beds: "4 giường đôi",
+        image: "assets/images/room2.png",
+        description: "Villa gia đình nguyên căn cực kỳ đẳng cấp, bao gồm nhiều giường đôi, phòng khách riêng và khu BBQ ngoài trời.",
+        amenities: ["Hồ bơi riêng", "Bếp gia đình", "Khu BBQ", "Phòng khách", "Smart Home"],
+        badge: "Cao cấp"
+    }
+];

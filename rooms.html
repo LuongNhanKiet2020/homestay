@@ -48,89 +48,40 @@
     <!-- Rooms Section -->
     <section class="rooms-section rooms-page">
         <div class="container">
-            <div class="rooms-grid" style="margin-top: 0;">
-                <!-- Room Card 1 -->
-                <div class="room-card scroll-animate fade-up">
-                    <div class="room-img-wrapper">
-                        <img src="assets/images/room1.png" alt="Phòng Cozy">
-                        <span class="badge">Phổ biến</span>
+            <!-- Filter Bar -->
+            <div class="filter-bar scroll-animate fade-up" style="margin-bottom: 3rem;">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; background: var(--glass-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <div class="booking-field" style="flex: 1; min-width: 200px; border-right: 1px solid rgba(255,255,255,0.1);">
+                        <label>Tìm kiếm tên phòng</label>
+                        <input type="text" id="searchInput" placeholder="Nhập tên phòng...">
                     </div>
-                    <div class="room-info">
-                        <h3>Cozy Forest Retreat</h3>
-                        <p>Phòng ngủ view núi với nội thất gỗ ấm áp và ban công riêng tư.</p>
-                        <div class="room-meta">
-                            <span>🛏️ 1 Giường King</span>
-                            <span>🛁 Bồn tắm</span>
-                            <span>👥 2 Khách</span>
-                        </div>
-                        <div class="room-footer">
-                            <div class="price">1.500.000đ<span>/đêm</span></div>
-                            <button class="btn-outline">Chi Tiết</button>
-                        </div>
+                    <div class="booking-field" style="flex: 1; min-width: 150px; border-right: 1px solid rgba(255,255,255,0.1);">
+                        <label>Sức chứa</label>
+                        <select id="capacityFilter">
+                            <option value="all">Tất cả</option>
+                            <option value="1">1 Người</option>
+                            <option value="2">2 Người</option>
+                            <option value="3">3 Người</option>
+                            <option value="4">4+ Người</option>
+                        </select>
+                    </div>
+                    <div class="booking-field" style="flex: 1; min-width: 150px; border-right: none;">
+                        <label>Mức giá</label>
+                        <select id="priceFilter">
+                            <option value="all">Tất cả mức giá</option>
+                            <option value="under500">Dưới 500.000đ</option>
+                            <option value="500-1000">500.000đ - 1.000.000đ</option>
+                            <option value="over1000">Trên 1.000.000đ</option>
+                        </select>
                     </div>
                 </div>
+            </div>
 
-                <!-- Room Card 2 -->
-                <div class="room-card scroll-animate fade-up delay-1">
-                    <div class="room-img-wrapper">
-                        <img src="assets/images/room2.png" alt="Phòng Luxury">
-                        <span class="badge premium">Cao cấp</span>
-                    </div>
-                    <div class="room-info">
-                        <h3>Infinity Pool Villa</h3>
-                        <p>Villa nguyên căn với hồ bơi vô cực, phòng khách kính và không gian rộng lớn.</p>
-                        <div class="room-meta">
-                            <span>🛏️ 2 Giường King</span>
-                            <span>🏊 Hồ bơi riêng</span>
-                            <span>👥 4 Khách</span>
-                        </div>
-                        <div class="room-footer">
-                            <div class="price">3.800.000đ<span>/đêm</span></div>
-                            <button class="btn-outline">Chi Tiết</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Room Card 3 -->
-                <div class="room-card scroll-animate fade-up">
-                    <div class="room-img-wrapper">
-                        <img src="assets/images/hero.png" alt="Family Suite">
-                        <span class="badge">Gia đình</span>
-                    </div>
-                    <div class="room-info">
-                        <h3>Nature Family Suite</h3>
-                        <p>Căn hộ hai phòng ngủ rộng rãi, bếp nhỏ tiện lợi cho gia đình.</p>
-                        <div class="room-meta">
-                            <span>🛏️ 2 Giường Queen</span>
-                            <span>🍳 Bếp nhỏ</span>
-                            <span>👥 4-5 Khách</span>
-                        </div>
-                        <div class="room-footer">
-                            <div class="price">2.200.000đ<span>/đêm</span></div>
-                            <button class="btn-outline">Chi Tiết</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Room Card 4 -->
-                <div class="room-card scroll-animate fade-up delay-1">
-                    <div class="room-img-wrapper">
-                        <img src="assets/images/room1.png" alt="Standard Room">
-                    </div>
-                    <div class="room-info">
-                        <h3>Pine Standard Room</h3>
-                        <p>Phòng tiêu chuẩn gọn gàng, ấm cúng với góc nhìn hướng đồi thông xanh.</p>
-                        <div class="room-meta">
-                            <span>🛏️ 1 Giường Đôi</span>
-                            <span>🚿 Vòi sen</span>
-                            <span>👥 2 Khách</span>
-                        </div>
-                        <div class="room-footer">
-                            <div class="price">950.000đ<span>/đêm</span></div>
-                            <button class="btn-outline">Chi Tiết</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="rooms-grid" id="rooms-container" style="margin-top: 0;">
+                <!-- JS sẽ render phòng ở đây -->
+            </div>
+            <div id="no-results" style="display: none; text-align: center; color: var(--text-muted); padding: 3rem;">
+                Không tìm thấy phòng phù hợp với yêu cầu của bạn.
             </div>
         </div>
     </section>
@@ -166,6 +117,7 @@
     </footer>
 
     <!-- JS -->
+    <script src="js/data.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

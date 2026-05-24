@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Phòng | Lumière Homestay</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .detail-section {
+            padding: 8rem 0 5rem;
+        }
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+        }
+        .room-hero-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .room-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .room-meta-detail {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--glass-border);
+            color: #ddd;
+            font-size: 1.1rem;
+        }
+        .room-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .amenities-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+            margin-bottom: 3rem;
+        }
+        .amenities-list li {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .amenities-list li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        /* Booking Box */
+        .booking-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 100px;
+        }
+        .booking-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1rem;
+        }
+        .booking-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group label {
+            color: #ddd;
+            font-size: 0.95rem;
+        }
+        .form-group input, .form-group select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            color: #fff;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            outline: none;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--accent);
+        }
+        .form-group input::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+        .form-group select option {
+            background: var(--primary);
+            color: #fff;
+        }
+        .quantity-left {
+            margin-top: 1rem;
+            text-align: center;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        
+        /* Modal Success */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .modal-content {
+            background: var(--primary);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--accent);
+            text-align: center;
+            max-width: 400px;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        .modal-content h3 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .modal-content p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 992px) {
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+            .booking-box {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="logo">LUMIÈRE.</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="about.html">Về Chúng Tôi</a></li>
+            <li><a href="rooms.html">Phòng Nghỉ</a></li>
+            <li><a href="contact.html">Liên Hệ</a></li>
+        </ul>
+        <button class="btn-primary">Đặt Phòng Ngay</button>
+    </nav>
+
+    <!-- Detail Section -->
+    <section class="detail-section">
+        <div class="container">
+            <a href="rooms.html" style="color: var(--accent); margin-bottom: 2rem; display: inline-block;">&larr; Trở về danh sách phòng</a>
+            
+            <div id="room-detail-content" class="detail-grid">
+                <!-- Content will be injected by JS -->
+                <div style="color: white;">Đang tải thông tin...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <h3>Đặt Phòng Thành Công!</h3>
+            <p>Cảm ơn bạn đã chọn Lumière. Chúng tôi sẽ liên hệ lại qua số điện thoại để xác nhận trong thời gian sớm nhất.</p>
+            <button class="btn-primary" onclick="window.location.href='rooms.html'">Về Danh Sách Phòng</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border: none;">
+                <p>&copy; 2026 Lumière Homestay. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Lấy ID phòng từ URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const roomId = urlParams.get('id');
+            const detailContainer = document.getElementById('room-detail-content');
+            
+            if (!roomId || typeof roomsData === 'undefined') {
+                detailContainer.innerHTML = '<h2 style="color: white;">Phòng không tồn tại.</h2>';
+                return;
+            }
+
+            // Tìm phòng trong data
+            const room = roomsData.find(r => r.id === roomId);
+            
+            if (!room) {
+                detailContainer.innerHTML = '<h2 style="color: white;">Phòng không tồn tại.</h2>';
+                return;
+            }
+
+            // Render chi tiết phòng
+            document.title = `${room.name} | Lumière Homestay`;
+            
+            const amenitiesHtml = room.amenities.map(a => `<li>${a}</li>`).join('');
+
+            const html = `
+                <div class="room-info-left scroll-animate slide-right">
+                    <img src="${room.image}" alt="${room.name}" class="room-hero-img">
+                    <h1 class="room-title">${room.name}</h1>
+                    <div class="room-meta-detail">
+                        <span>🛏️ ${room.beds}</span>
+                        <span>👥 Tối đa ${room.capacity} Khách</span>
+                    </div>
+                    <div class="room-desc">
+                        <p>${room.description}</p>
+                    </div>
+                    <h3 style="color: #fff; margin-bottom: 1.5rem; font-size: 1.5rem;">Tiện nghi phòng</h3>
+                    <ul class="amenities-list">
+                        ${amenitiesHtml}
+                    </ul>
+                </div>
+                
+                <div class="room-booking-right scroll-animate slide-left">
+                    <div class="booking-box">
+                        <div class="booking-price">${room.priceFormatted}<span>/đêm</span></div>
+                        <form id="bookingForm">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div class="form-group">
+                                    <label>Nhận phòng</label>
+                                    <input type="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Trả phòng</label>
+                                    <input type="date" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Họ và Tên</label>
+                                <input type="text" placeholder="Nhập tên..." required>
+                            </div>
+                            <div class="form-group">
+                                <label>Số điện thoại</label>
+                                <input type="tel" placeholder="Nhập số..." required>
+                            </div>
+                            <button type="submit" class="btn-accent" style="width: 100%; padding: 1.2rem; font-size: 1.1rem; margin-top: 1rem;">Xác Nhận Đặt Phòng</button>
+                            <div class="quantity-left">Chỉ còn ${room.quantity} phòng trống!</div>
+                        </form>
+                    </div>
+                </div>
+            `;
+            
+            detailContainer.innerHTML = html;
+
+            // Handle Form Submit
+            const bookingForm = document.getElementById('bookingForm');
+            const successModal = document.getElementById('successModal');
+            
+            bookingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                successModal.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -60,4 +60,90 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // 5. Rooms Rendering and Filtering
+    const roomsContainer = document.getElementById('rooms-container');
+    if (roomsContainer && typeof roomsData !== 'undefined') {
+        const searchInput = document.getElementById('searchInput');
+        const capacityFilter = document.getElementById('capacityFilter');
+        const priceFilter = document.getElementById('priceFilter');
+        const noResults = document.getElementById('no-results');
+
+        const renderRooms = (rooms) => {
+            roomsContainer.innerHTML = '';
+            if (rooms.length === 0) {
+                noResults.style.display = 'block';
+                return;
+            }
+            noResults.style.display = 'none';
+            
+            rooms.forEach((room, index) => {
+                const delayClass = index % 2 !== 0 ? 'delay-1' : '';
+                const badgeHtml = room.badge ? `<span class="badge ${room.badge === 'Cao cấp' ? 'premium' : ''}">${room.badge}</span>` : '';
+                
+                const roomCard = `
+                <div class="room-card animate fade-up ${delayClass}">
+                    <div class="room-img-wrapper">
+                        <img src="${room.image}" alt="${room.name}">
+                        ${badgeHtml}
+                    </div>
+                    <div class="room-info">
+                        <h3>${room.name}</h3>
+                        <p>${room.description.substring(0, 80)}...</p>
+                        <div class="room-meta">
+                            <span>🛏️ ${room.beds}</span>
+                            <span>👥 ${room.capacity} Khách</span>
+                        </div>
+                        <div class="room-footer">
+                            <div class="price">${room.priceFormatted}<span>/đêm</span></div>
+                            <a href="room-detail.html?id=${room.id}" class="btn-outline">Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>`;
+                roomsContainer.innerHTML += roomCard;
+            });
+            
+            // Note: Since we use 'animate' class directly above, they appear immediately without scroll trigger, which is better for filtering UX.
+        };
+
+        const filterRooms = () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            const capacity = capacityFilter.value;
+            const price = priceFilter.value;
+
+            const filteredRooms = roomsData.filter(room => {
+                const matchName = room.name.toLowerCase().includes(searchTerm);
+                
+                let matchCapacity = true;
+                if (capacity !== 'all') {
+                    if (capacity === '4') {
+                        matchCapacity = room.capacity >= 4;
+                    } else {
+                        matchCapacity = room.capacity === parseInt(capacity);
+                    }
+                }
+
+                let matchPrice = true;
+                if (price !== 'all') {
+                    if (price === 'under500') {
+                        matchPrice = room.price < 500000;
+                    } else if (price === '500-1000') {
+                        matchPrice = room.price >= 500000 && room.price <= 1000000;
+                    } else if (price === 'over1000') {
+                        matchPrice = room.price > 1000000;
+                    }
+                }
+
+                return matchName && matchCapacity && matchPrice;
+            });
+
+            renderRooms(filteredRooms);
+        };
+
+        searchInput.addEventListener('input', filterRooms);
+        capacityFilter.addEventListener('change', filterRooms);
+        priceFilter.addEventListener('change', filterRooms);
+
+        renderRooms(roomsData);
+    }
 });
