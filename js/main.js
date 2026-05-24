@@ -96,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                         <div class="room-footer">
                             <div class="price">${room.priceFormatted}<span>/đêm</span></div>
-                            <a href="room-detail.html?id=${room.id}" class="btn-outline">Chi Tiết</a>
                         </div>
                     </div>
                 </div>`;
