@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Về Chúng Tôi | Lumière Homestay</title>
+    <meta name="description" content="Khám phá câu chuyện và dịch vụ của Lumière Homestay.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .page-header {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(15,15,15,1) 0%, rgba(10,10,10,1) 100%);
+        }
+        .story-section {
+            padding: 5rem 0 10rem;
+        }
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+        .story-grid.reverse {
+            direction: rtl;
+        }
+        .story-grid.reverse > * {
+            direction: ltr;
+        }
+        .story-image img {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="logo">LUMIÈRE.</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="about.html">Về Chúng Tôi</a></li>
+            <li><a href="rooms.html">Phòng Nghỉ</a></li>
+            <li><a href="contact.html">Liên Hệ</a></li>
+        </ul>
+        <button class="btn-primary">Đặt Phòng Ngay</button>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="section-title scroll-animate fade-up">Về <span>Lumière</span></h1>
+            <p class="scroll-animate fade-up delay-1" style="max-width: 600px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem;">Khởi nguồn từ tình yêu với thiên nhiên, Lumière Homestay được tạo ra để mang đến cho bạn những khoảnh khắc bình yên thực sự.</p>
+        </div>
+    </header>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-image scroll-animate slide-right">
+                    <img src="assets/images/room1.png" alt="Kiến trúc hoà hợp thiên nhiên">
+                </div>
+                <div class="story-content scroll-animate slide-left">
+                    <h2>Hài Hoà Với Thiên Nhiên</h2>
+                    <p style="color: var(--text-muted); margin-top: 1rem; font-size: 1.1rem;">Thiết kế của Lumière tôn trọng tối đa vẻ đẹp của rừng thông xung quanh. Chúng tôi sử dụng kính trong suốt và gỗ tự nhiên để xoá nhoà ranh giới giữa bên trong và bên ngoài, giúp bạn luôn cảm nhận được hơi thở của rừng xanh.</p>
+                </div>
+            </div>
+            
+            <div class="story-grid reverse">
+                <div class="story-image scroll-animate slide-left">
+                    <img src="assets/images/room2.png" alt="Dịch vụ tận tâm">
+                </div>
+                <div class="story-content scroll-animate slide-right">
+                    <h2>Trải Nghiệm Đẳng Cấp</h2>
+                    <p style="color: var(--text-muted); margin-top: 1rem; font-size: 1.1rem;">Dù nằm giữa thiên nhiên hoang sơ, tiện nghi tại Lumière vẫn đạt chuẩn 5 sao. Từ hồ bơi vô cực ngắm hoàng hôn đến những bữa tiệc BBQ riêng tư, mọi dịch vụ đều được cá nhân hoá theo ý thích của bạn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>LUMIÈRE.</h2>
+                    <p>Khơi nguồn cảm hứng từ vẻ đẹp của tự nhiên, mang đến cho bạn kỳ nghỉ yên bình trọn vẹn.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Khám Phá</h3>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="rooms.html">Phòng nghỉ</a></li>
+                        <li><a href="about.html">Về chúng tôi</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Liên Hệ</h3>
+                    <p>📍 123 Đường Rừng Thông, Đà Lạt, VN</p>
+                    <p>📞 +84 123 456 789</p>
+                    <p>✉️ hello@lumiere.vn</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lumière Homestay. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

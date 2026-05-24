@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumière Homestay | Trải Nghiệm Nghỉ Dưỡng Hoàn Hảo</title>
-    <meta name="description"
-        content="Lumière Homestay mang đến cho bạn không gian lưu trú sang trọng, hoà mình cùng thiên nhiên với thiết kế hiện đại và dịch vụ đẳng cấp.">
+    <title>Phòng Nghỉ | Lumière Homestay</title>
+    <meta name="description" content="Danh sách các hạng phòng cao cấp tại Lumière Homestay.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .page-header {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(15,15,15,1) 0%, rgba(10,10,10,1) 100%);
+        }
+        .rooms-page {
+            padding-bottom: 10rem;
+        }
+    </style>
 </head>
-
 <body>
     <!-- Navbar -->
-    <nav class="navbar hidden-element">
-        <div class="logo">Homestay Mật Tích</div>
+    <nav class="navbar scrolled">
+        <div class="logo">LUMIÈRE.</div>
         <ul class="nav-links">
             <li><a href="index.html">Trang Chủ</a></li>
             <li><a href="about.html">Về Chúng Tôi</a></li>
@@ -30,86 +37,18 @@
         <button class="btn-primary">Đặt Phòng Ngay</button>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="home" class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <h1 class="fade-up">Nơi Vẻ Đẹp Hoà Quyện<br>Cùng Thiên Nhiên</h1>
-            <p class="fade-up delay-1">Khám phá không gian nghỉ dưỡng tuyệt vời, nơi mọi chi tiết đều được chăm chút để
-                mang lại cho bạn trải nghiệm thư giãn đẳng cấp nhất.</p>
-            <div class="hero-actions fade-up delay-2">
-                <a href="rooms.html" class="btn-primary large">Khám Phá Phòng</a>
-                <a href="#video" class="btn-secondary large play-btn">
-                    <span class="icon">▶</span> Xem Video
-                </a>
-            </div>
-
-            <!-- Glassmorphism Booking Bar -->
-            <div class="booking-bar fade-up delay-3">
-                <div class="booking-field">
-                    <label>Nhận phòng</label>
-                    <input type="date">
-                </div>
-                <div class="booking-field">
-                    <label>Trả phòng</label>
-                    <input type="date">
-                </div>
-                <div class="booking-field">
-                    <label>Khách</label>
-                    <select>
-                        <option>2 Người Lớn, 0 Trẻ em</option>
-                        <option>2 Người Lớn, 1 Trẻ em</option>
-                        <option>4 Người Lớn, 2 Trẻ em</option>
-                    </select>
-                </div>
-                <button class="btn-accent">Kiểm Tra</button>
-            </div>
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="section-title scroll-animate fade-up">Các Hạng Phòng Tại <span>Lumière</span></h1>
+            <p class="scroll-animate fade-up delay-1" style="max-width: 600px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem;">Khám phá các không gian lưu trú tuyệt hảo được thiết kế riêng cho từng nhu cầu của bạn.</p>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container grid-2-col">
-            <div class="about-text scroll-animate slide-right">
-                <h2 class="section-title">Nghỉ Dưỡng Thượng Lưu Giữa Lòng Thiên Nhiên</h2>
-                <p>Lumière Homestay được thiết kế với kiến trúc không gian mở, sử dụng vật liệu kính sang trọng giúp bạn
-                    luôn cảm thấy kết nối với khung cảnh núi rừng hùng vĩ bên ngoài.</p>
-                <p>Chúng tôi tự hào mang đến trải nghiệm nghỉ dưỡng hoàn hảo với hồ bơi vô cực, phòng ngủ ấm cúng chuẩn
-                    khách sạn 5 sao và dịch vụ tận tâm.</p>
-                <div class="features">
-                    <div class="feature-item">
-                        <h3>100%</h3>
-                        <p>View Rừng Thông</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3>24/7</h3>
-                        <p>Dịch vụ hỗ trợ</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3>5 Sao</h3>
-                        <p>Tiện nghi phòng</p>
-                    </div>
-                </div>
-            </div>
-            <div class="about-image scroll-animate slide-left">
-                <img src="assets/images/room1.png" alt="Phòng ngủ ấm cúng" class="image-parallax">
-                <div class="glass-card overlay-card">
-                    <h4>Đánh giá 4.9/5</h4>
-                    <p>"Tuyệt vời, sẽ quay lại vào lần tới!" - Minh Tuấn</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Rooms Section -->
-    <section id="rooms" class="rooms-section">
+    <section class="rooms-section rooms-page">
         <div class="container">
-            <div class="section-header scroll-animate fade-up">
-                <h2 class="section-title">Các Hạng Phòng Nổi Bật</h2>
-                <p>Lựa chọn không gian hoàn hảo cho kỳ nghỉ của bạn</p>
-            </div>
-
-            <div class="rooms-grid">
+            <div class="rooms-grid" style="margin-top: 0;">
                 <!-- Room Card 1 -->
                 <div class="room-card scroll-animate fade-up">
                     <div class="room-img-wrapper">
@@ -151,6 +90,47 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Room Card 3 -->
+                <div class="room-card scroll-animate fade-up">
+                    <div class="room-img-wrapper">
+                        <img src="assets/images/hero.png" alt="Family Suite">
+                        <span class="badge">Gia đình</span>
+                    </div>
+                    <div class="room-info">
+                        <h3>Nature Family Suite</h3>
+                        <p>Căn hộ hai phòng ngủ rộng rãi, bếp nhỏ tiện lợi cho gia đình.</p>
+                        <div class="room-meta">
+                            <span>🛏️ 2 Giường Queen</span>
+                            <span>🍳 Bếp nhỏ</span>
+                            <span>👥 4-5 Khách</span>
+                        </div>
+                        <div class="room-footer">
+                            <div class="price">2.200.000đ<span>/đêm</span></div>
+                            <button class="btn-outline">Chi Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room Card 4 -->
+                <div class="room-card scroll-animate fade-up delay-1">
+                    <div class="room-img-wrapper">
+                        <img src="assets/images/room1.png" alt="Standard Room">
+                    </div>
+                    <div class="room-info">
+                        <h3>Pine Standard Room</h3>
+                        <p>Phòng tiêu chuẩn gọn gàng, ấm cúng với góc nhìn hướng đồi thông xanh.</p>
+                        <div class="room-meta">
+                            <span>🛏️ 1 Giường Đôi</span>
+                            <span>🚿 Vòi sen</span>
+                            <span>👥 2 Khách</span>
+                        </div>
+                        <div class="room-footer">
+                            <div class="price">950.000đ<span>/đêm</span></div>
+                            <button class="btn-outline">Chi Tiết</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -188,5 +168,4 @@
     <!-- JS -->
     <script src="js/main.js"></script>
 </body>
-
 </html>
