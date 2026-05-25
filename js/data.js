@@ -36,7 +36,7 @@ const roomsData = [
         quantity: 2,
         capacity: 3,
         beds: "1 giường đơn + 1 giường đôi",
-        image: "assets/images/hero.png",
+        image: "assets/images/room7.jpg",
         description: "Lựa chọn hoàn hảo cho nhóm bạn 3 người hoặc gia đình nhỏ, không gian sinh hoạt rộng rãi và thoải mái.",
         amenities: ["Wifi miễn phí", "Smart TV", "Vòi sen", "Khu vực tiếp khách"],
         badge: ""
