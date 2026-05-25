@@ -2,7 +2,7 @@
 :root {
     --primary: #1a1a1a;
     --primary-light: #2c2c2c;
-    --accent: #d4af37; /* Gold */
+    --accent: #d4af37;
     --accent-hover: #b89528;
     --text-main: #f5f5f5;
     --text-muted: #a3a3a3;
@@ -10,9 +10,207 @@
     --bg-card: rgba(30, 30, 30, 0.6);
     --glass-bg: rgba(20, 20, 20, 0.4);
     --glass-border: rgba(255, 255, 255, 0.1);
-    
+    --navbar-bg: rgba(15, 15, 15, 0.85);
+    --footer-bg: #050505;
+    --rooms-bg: #0a0a0a;
     --font-main: 'Outfit', sans-serif;
     --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ===== LIGHT MODE ===== */
+body.light-mode {
+    --primary: #ffffff;
+    --primary-light: #f0f0f0;
+    --text-main: #1a1a1a;
+    --text-muted: #555555;
+    --bg-dark: #f5f4f0;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --navbar-bg: rgba(245, 244, 240, 0.92);
+    --footer-bg: #e8e6e0;
+    --rooms-bg: #ede9e0;
+}
+
+body.light-mode .navbar.scrolled {
+    background: var(--navbar-bg);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+body.light-mode .nav-links a {
+    color: #333;
+}
+
+body.light-mode .nav-links a:hover {
+    color: var(--accent);
+}
+
+body.light-mode .logo {
+    color: #1a1a1a;
+}
+
+body.light-mode .section-title {
+    color: #1a1a1a;
+}
+
+body.light-mode .room-card {
+    background: #fff;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+body.light-mode .room-card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-color: var(--accent);
+}
+
+body.light-mode .room-info h3 {
+    color: #1a1a1a;
+}
+
+body.light-mode .room-meta {
+    border-bottom-color: rgba(0,0,0,0.1);
+    color: #444;
+}
+
+body.light-mode .price {
+    color: #1a1a1a;
+}
+
+body.light-mode .badge {
+    background: rgba(0,0,0,0.08);
+    color: #1a1a1a;
+}
+
+body.light-mode .rooms-section {
+    background: var(--rooms-bg);
+}
+
+body.light-mode .footer {
+    background: var(--footer-bg);
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+body.light-mode .footer-bottom {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    color: #555;
+}
+
+body.light-mode .footer-brand h2,
+body.light-mode .footer-links h3,
+body.light-mode .footer-contact h3 {
+    color: #1a1a1a;
+}
+
+body.light-mode .features {
+    border-top-color: rgba(0,0,0,0.1);
+}
+
+body.light-mode .glass-card {
+    background: rgba(255,255,255,0.9);
+    border-color: rgba(0,0,0,0.1);
+}
+
+body.light-mode .glass-card p {
+    color: #444;
+}
+
+body.light-mode .booking-bar {
+    background: rgba(255,255,255,0.85);
+    border-color: rgba(0,0,0,0.12);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+body.light-mode .booking-field {
+    border-right-color: rgba(0,0,0,0.1);
+}
+
+body.light-mode .booking-field input,
+body.light-mode .booking-field select {
+    color: #1a1a1a;
+}
+
+body.light-mode .booking-field input::-webkit-calendar-picker-indicator {
+    filter: invert(0);
+}
+
+body.light-mode .booking-field select option {
+    background: #fff;
+    color: #1a1a1a;
+}
+
+body.light-mode .btn-primary {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+body.light-mode .btn-primary:hover {
+    background: #333;
+}
+
+body.light-mode .btn-outline {
+    color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+body.light-mode .btn-outline:hover {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+body.light-mode .btn-secondary {
+    background: rgba(0,0,0,0.07);
+    color: #1a1a1a;
+    border-color: rgba(0,0,0,0.15);
+}
+
+body.light-mode .section-header p {
+    color: var(--text-muted);
+}
+
+body.light-mode .hero-bg::after {
+    background: linear-gradient(to bottom, rgba(245,244,240,0.2) 0%, rgba(245,244,240,0.75) 100%);
+}
+
+body.light-mode .hero p {
+    color: #1a1a1a;
+}
+
+body.light-mode .hero h1 {
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
+body.light-mode .about-text p {
+    color: var(--text-muted);
+}
+
+/* ===== THEME TOGGLE BUTTON ===== */
+.theme-toggle {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    transform: rotate(20deg) scale(1.15);
+    border-color: var(--accent);
+    background: rgba(212,175,55,0.15);
+}
+
+body.light-mode .theme-toggle {
+    background: rgba(0,0,0,0.07);
+    border-color: rgba(0,0,0,0.15);
 }
 
 /* ===== RESET & BASE ===== */
